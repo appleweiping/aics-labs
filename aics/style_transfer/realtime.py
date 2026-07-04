@@ -87,9 +87,9 @@ def train_transform_net(
             if step % log_every == 0 or step == 1:
                 rec = {
                     "step": step,
-                    "total": float(loss),
-                    "content": float(c_loss),
-                    "style": float(s_loss),
+                    "total": float(loss.item()),
+                    "content": float(c_loss.item()),
+                    "style": float(s_loss.item()),
                     "seconds": round(time.time() - t0, 1),
                 }
                 history.append(rec)

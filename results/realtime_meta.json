@@ -1,0 +1,18 @@
+{
+  "method": "Real-time feed-forward style transfer (Johnson et al.), VGG19 perceptual loss",
+  "size": 128,
+  "train_steps": 120,
+  "batch": 2,
+  "style_weight": 100000.0,
+  "train_seconds": 356.1,
+  "inference_seconds_single_image": 0.241,
+  "final_losses": {
+    "step": 120,
+    "total": 1294.8095703125,
+    "content": 36.035518646240234,
+    "style": 1258.7740478515625,
+    "seconds": 353.6
+  },
+  "output": "results/realtime_stylized.png",
+  "weights": "weights/transform_net.pth"
+}

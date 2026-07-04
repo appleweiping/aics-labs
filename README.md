@@ -52,15 +52,18 @@ they teach at the algorithm/operator level *is* implemented here in numpy.
 | Operators (2/3.1) | conv/pool/act/linear/softmax-CE, forward+backward | **10/10 gradient checks pass** (rel. err < 1e-5) |
 | Framework (2/4) | LeNet from our own ops, trained on MNIST | **test accuracy 0.970** (2000 held-out digits, 5 epochs) |
 | Non-real-time ST (3.3) | Gatys LBFGS style transfer, VGG19, 256px | total loss **12777 → 68** over 300 steps (~16 min) |
-| Real-time ST (4.2/4.3) | Johnson feed-forward net, VGG19 perceptual loss | trained on CPU; **single-image stylisation ≈ REALTIME_MS ms** |
+| Real-time ST (4.2/4.3) | Johnson feed-forward net, VGG19 perceptual loss, 128px | style loss **4184 → 1259** (120 steps, ~6 min train); **single-image stylisation = 242 ms / image** (one forward pass) |
 | Capstone (7) | full `stylize_app.py` CLI (gatys \| realtime) | produces real stylised images (see `results/`) |
+
+The real-time net stylises in **~0.24 s/image** after training, versus **~16 min/image**
+for the Gatys optimisation method — the whole point of the feed-forward approach.
 
 **Non-real-time style transfer output** (content structure preserved, style
 texture transferred):
 
-| Content | Style | Stylised (Gatys) |
-|---|---|---|
-| ![content](results/gatys_content.png) | ![style](results/gatys_style.png) | ![stylized](results/gatys_stylized.png) |
+| Content | Style | Stylised (Gatys) | Stylised (real-time net) |
+|---|---|---|---|
+| ![content](results/gatys_content.png) | ![style](results/gatys_style.png) | ![stylized](results/gatys_stylized.png) | ![realtime](results/realtime_stylized.png) |
 
 **From-scratch LeNet on MNIST** (trained with our numpy operators + framework):
 

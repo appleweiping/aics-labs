@@ -97,7 +97,11 @@ def main():
             count += 1
 
     print(f"Training TransformNet for real-time style transfer: "
-          f"{args.steps} steps, batch {args.batch}, size {args.size}")
+          f"{args.steps} steps, batch {args.batch}, size {args.size}", flush=True)
+
+    def logger(msg):
+        print(msg, flush=True)
+
     t0 = time.time()
     model, history = train_transform_net(
         style,
@@ -107,6 +111,7 @@ def main():
         lr=1e-3,
         device=device,
         log_every=20,
+        log_fn=logger,
     )
     train_dt = time.time() - t0
 
