@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual envs
+.venv/
+venv/
+env/
+
+# Data caches & model downloads (fetched at runtime, gitignored per factory spec)
+data/*.gz
+data/*.npz
+data/*.zip
+data/MNIST/
+data/mnist/
+*.pth
+*.pt
+!results/**/*.pt
+
+# Large model weights (downloaded at runtime)
+weights/
+*.ckpt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep results (small figures/logs are committed as evidence)
+!results/
