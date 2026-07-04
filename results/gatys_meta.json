@@ -1,0 +1,17 @@
+{
+  "method": "Gatys optimization-based (non-real-time) style transfer, VGG19",
+  "content": "data/content.jpg",
+  "style": "data/style.jpg",
+  "size": 256,
+  "steps": 300,
+  "style_weight": 1000000.0,
+  "seconds": 989.4,
+  "final_losses": {
+    "step": 300,
+    "total": 68.2597885131836,
+    "content": 32.99781799316406,
+    "style": 35.26189422607422,
+    "tv": 7.887738320278004e-05
+  },
+  "output": "results/gatys_stylized.png"
+}
